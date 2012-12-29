@@ -5,6 +5,7 @@ call pathogen#helptags()
 
 set nocompatible                  " Must come first because it changes other options.
 
+set encoding=utf-8                " Encoding UTF8
 syntax enable                     " Turn on syntax highlighting.
 filetype on                       " Enable file type detection.
 filetype indent on                " Enable specific indent.
@@ -97,7 +98,7 @@ map <leader>R :.Rake<cr>
 nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
