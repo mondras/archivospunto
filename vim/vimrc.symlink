@@ -98,7 +98,7 @@ map <leader>R :.Rake<cr>
 nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-" set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
