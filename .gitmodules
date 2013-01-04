@@ -46,3 +46,6 @@
 [submodule "vim/vim.symlink/bundle/ack.vim"]
 	path = vim/vim.symlink/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/vim.symlink/bundle/python.vim--Vasiliev"]
+	path = vim/vim.symlink/bundle/python.vim--Vasiliev
+	url = git://github.com/vim-scripts/python.vim--Vasiliev.git
