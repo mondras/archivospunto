@@ -194,27 +194,13 @@ map <expr> <F6> ToggleInsertCase()
 " let the case be toggled in insert mode
 imap <expr> <F6> ToggleInsertCase()
 
-let toUpper = 0
+let lit = 0
 func! ToggleInsertCase()
-  let g:toUpper = 1 - g:toUpper
-  if (g:toUpper == 1)
+  let g:lit = 1 - g:lit
+  if (g:lit == 1)
     highlight Normal ctermbg=Blue " the background color you want when uppercased
-    " convert all the letters to uppercase in insert mode
-    let i = char2nr('a')
-    while i <= char2nr('z')
-      let c = nr2char(i)
-      exe 'inoremap' c toupper(c)
-      let i = i + 1
-    endwhile
   else
     highlight Normal ctermbg=Black " the background color you want normally
-    " let letters be as normal in insert mode
-    let i = char2nr('a')
-    while i <= char2nr('z')
-      let c = nr2char(i)
-      exe 'iunmap' c
-      let i = i + 1
-    endwhile
   endif
   " don't insert anything when this function is called in normal mode
   return ""
