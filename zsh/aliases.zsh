@@ -4,4 +4,3 @@ alias postgres_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgr
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias be='bundle exec'
 alias rreset='be rake db:drop db:create db:migrate db:seed db:test:prepare'
-
