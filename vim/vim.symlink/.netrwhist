@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/cadragon/.archivospunto/z'
 let g:netrw_dirhist_2='/Users/cadragon/dev/beagle/config'
 let g:netrw_dirhist_3='/Users/cadragon/dev/bloodhound/lib/bloodhound'
 let g:netrw_dirhist_4='/Users/cadragon/dev/bloodhound/lib/bloodhound/update_source_status'
+let g:netrw_dirhist_5='/Users/cadragon/dev/bucareli/script'
+let g:netrw_dirhist_6='/Users/cadragon/dev/bucareli/script/fetcher'
