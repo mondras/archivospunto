@@ -205,3 +205,14 @@ func! ToggleInsertCase()
   " don't insert anything when this function is called in normal mode
   return ""
 endfunc
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }

@@ -34,18 +34,15 @@
 [submodule "vim/vim.symlink/bundle/vim-gnupg"]
 	path = vim/vim.symlink/bundle/vim-gnupg
 	url = git://github.com/jamessan/vim-gnupg.git
-[submodule "vim/vim.symlink/bundle/FuzzyFinder"]
-	path = vim/vim.symlink/bundle/FuzzyFinder
-	url = git://github.com/vim-scripts/FuzzyFinder
 [submodule "vim/vim.symlink/bundle/vim-colors-solarized"]
 	path = vim/vim.symlink/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized
-[submodule "vim/vim.symlink/bundle/L9"]
-	path = vim/vim.symlink/bundle/L9
-	url = git://github.com/vim-scripts/L9
 [submodule "vim/vim.symlink/bundle/ack.vim"]
 	path = vim/vim.symlink/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
 [submodule "vim/vim.symlink/bundle/python.vim--Vasiliev"]
 	path = vim/vim.symlink/bundle/python.vim--Vasiliev
 	url = git://github.com/vim-scripts/python.vim--Vasiliev.git
+[submodule "vim/vim.symlink/bundle/ctrlp.vim"]
+	path = vim/vim.symlink/bundle/ctrlp.vim
+	url = git@github.com:kien/ctrlp.vim.git
