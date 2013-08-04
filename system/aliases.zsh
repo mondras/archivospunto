@@ -14,3 +14,6 @@ alias %=' '
 alias grep='grep --color=auto'
 alias egrep='grep --color=auto'
 alias fgrep='grep --color=auto'
+
+#git
+alias gci='git commit --interactive'
