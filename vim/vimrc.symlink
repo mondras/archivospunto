@@ -1,10 +1,31 @@
-" Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+" Vundle setup
+set nocompatible
+filetype off                  C
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
-set nocompatible                  " Must come first because it changes other options.
+" Repos
+Plugin 'kien/ctrlp.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mileszs/ack.vim'
+Plugin 'jamessan/vim-gnupg'
+Plugin 'slim-template/vim-slim'
+Plugin 'groenewege/vim-less'
+Plugin 'bling/vim-airline'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kana/vim-smartinput'
 
+" Testing this ones
+Plugin 'tpope/vim-rails'
+
+
+" Vundle wrap-up
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" My stuff
 set encoding=utf-8                " Encoding UTF8
 syntax enable                     " Turn on syntax highlighting.
 filetype on                       " Enable file type detection.
