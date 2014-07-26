@@ -1,0 +1,5 @@
+# Ignore
+/vim/vim.symlink/bundle/
+
+# Allow
+/vim/vim.symlink/bundle/Vundle.vim
