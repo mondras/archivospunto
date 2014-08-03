@@ -13,6 +13,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'slim-template/vim-slim'
 Plugin 'groenewege/vim-less'
+Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'kana/vim-smartinput'
@@ -193,7 +194,6 @@ set colorcolumn=80
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 
-
 autocmd FileType python setlocal sw=4 sts=4 et " Set indentation level
 
 "FuzzyFinder should ignore all files in .gitignore
@@ -237,3 +237,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
