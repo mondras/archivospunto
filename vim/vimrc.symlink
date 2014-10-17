@@ -17,6 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'kana/vim-smartinput'
+Plugin 'tommcdo/vim-exchange'
 
 " Testing this ones
 Plugin 'tpope/vim-rails'
@@ -55,7 +56,6 @@ set ai                            " Auto indent
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
-set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
@@ -76,7 +76,7 @@ set laststatus=2                 " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set cursorline                   " Hightlights the current line
-set colorcolumn=80               " Display 80 chars column
+set colorcolumn=81               " Display 80 chars column
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -159,7 +159,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/        " Display after exiting in
 
 " OLD STUFF
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 set smartindent
@@ -234,7 +234,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
@@ -242,3 +242,4 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
