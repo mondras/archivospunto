@@ -45,7 +45,7 @@ function put_spacing() {
 function precmd() {
 
 _z --add "$(pwd -P)"
-print -rP '%D{%H:%M:%S} $fg[cyan]%m: $fg[yellow]$(get_pwd)$(put_spacing)$(git_prompt_info) $(battery_charge)'
+print -rP '%D{%H:%M:%S}@$fg[cyan]%m:$fg[yellow]$(get_pwd) $(git_prompt_info)$(battery_charge)'
 }
 
 PROMPT='%{$reset_color%}→ '
