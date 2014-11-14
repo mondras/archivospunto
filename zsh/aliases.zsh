@@ -7,3 +7,4 @@ alias rreset='be rake db:drop db:create db:migrate db:seed db:test:prepare'
 alias cube='cd ~/node_modules/cube/; node bin/collector.js 2>&1 >> collector.log &; node bin/evaluator.js 2>&1 >> evaluator.log &'
 alias powrules='sudo pfctl -e'
 alias git=hub
+alias reload='source ~/.zsrhc'
