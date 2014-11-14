@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/mondras/dev/beagle/spec/support/cassets/Bloodhound_FetchCampaigns_Facebook_perform/fetching_campaigns'
-let g:netrw_dirhist_2='/Users/mondras/dev/beagle/spec/support/cassets/Bloodhound_FetchCampaigns_Facebook_perform/fetching_campaigns/fetched_campaign'
-let g:netrw_dirhist_3='/Users/mondras/dev/jquery-tokeninput'
+let g:netrw_dirhist_1='/Users/mondras/dev/beagle/app/assets'
+let g:netrw_dirhist_2='/Users/mondras/dev/beagle/app/assets/images'
+let g:netrw_dirhist_3='/Users/mondras/dev/beagle/mondras_scraps'
