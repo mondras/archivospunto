@@ -103,12 +103,6 @@ if has("multi_byte")
   "et fileencodings=ucs-bom,utf-8,latin1
 endif
 
-" Mini buffer explorer
-map <leader>bo :MiniBufExplorer<cr>
-map <leader>bc :CMiniBufExplorer<cr>
-map <leader>br :UMiniBufExplorer<cr>
-map <leader>bu :UMiniBufExplorer<cr>
-
 " Rspec
 map <leader>r :Rake<cr>
 map <leader>R :.Rake<cr>
@@ -145,8 +139,6 @@ autocmd BufNewFile,BufRead *.mxml,*.as :nmap <C-A> :!bash ~/.vim/bin/fcshcmp.sh 
 let g:gist_clip_command = 'pbcopy' " Gist: copy using system clipboard
 let g:gist_detect_filetype = 1     " Auto detect file type
 
-set wildignore+=vendor/local/**    " Command-T ignore vendor folder
-
 let g:Powerline_symbols = 'fancy'  " Display fancy characters in powerline
 set t_Co=256                       " Explicitly tell Vim that the terminal supports 256 colors
 
@@ -159,7 +151,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/        " Display after exiting in
 
 " OLD STUFF
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 set smartindent
@@ -196,20 +188,6 @@ set colorcolumn=80
 
 autocmd FileType python setlocal sw=4 sts=4 et " Set indentation level
 
-"FuzzyFinder should ignore all files in .gitignore
-let ignorefile = ".gitignore"
-if filereadable(ignorefile)
-
-  let ignore = '\v\~$'
-  for line in readfile(ignorefile)
-    let line = substitute(line, '\.', '\\.', 'g')
-    let line = substitute(line, '\*', '.*', 'g')
-    let ignore .= '|^' . line
-  endfor
-
-  let g:fuf_coveragefile_exclude = ignore
-endif
-
 " let the case be toggled in normal mode
 map <expr> <F6> ToggleInsertCase()
 " let the case be toggled in insert mode
@@ -234,7 +212,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$|\node_modules$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
