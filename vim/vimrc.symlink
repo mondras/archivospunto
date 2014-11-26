@@ -21,7 +21,8 @@ Plugin 'tommcdo/vim-exchange'
 
 " Testing this ones
 Plugin 'tpope/vim-rails'
-
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-bufferline'
 
 " Vundle wrap-up
 call vundle#end()            " required
