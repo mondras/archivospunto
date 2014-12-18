@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/mondras/dev/beagle/spec/support/cassets/Bloodhound_FetchCampaigns_Facebook_perform/fetching_campaigns'
 let g:netrw_dirhist_2='/Users/mondras/dev/beagle/spec/support/cassets/Bloodhound_FetchCampaigns_Facebook_perform/fetching_campaigns/fetched_campaign'
 let g:netrw_dirhist_3='/Users/mondras/dev/jquery-tokeninput'
+let g:netrw_dirhist_4='/home/action/.ssh'
+let g:netrw_dirhist_5='/home/action/workspace/manhattan/lib/bloodhound/fyber'
+let g:netrw_dirhist_6='/home/action/workspace/beagle/vendor/assets/bower_components/react-selectize/src'
+let g:netrw_dirhist_7='/home/action/workspace/beagle/app/assets/javascripts/react'

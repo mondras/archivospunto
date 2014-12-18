@@ -21,7 +21,9 @@ Plugin 'tommcdo/vim-exchange'
 
 " Testing this ones
 Plugin 'tpope/vim-rails'
-
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-bufferline'
+Plugin 'mxw/vim-jsx'
 
 " Vundle wrap-up
 call vundle#end()            " required
@@ -151,7 +153,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/        " Display after exiting in
 
 " OLD STUFF
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 set smartindent
@@ -212,7 +214,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$|\node_modules$',
+  \ 'dir':  'node_modules\|\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
