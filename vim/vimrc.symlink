@@ -22,7 +22,6 @@ Plugin 'tommcdo/vim-exchange'
 " Testing this ones
 Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-bufferline'
 Plugin 'mxw/vim-jsx'
 
 " Vundle wrap-up
@@ -223,3 +222,10 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:airline_powerline_fonts = 1
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
