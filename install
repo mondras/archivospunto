@@ -1,7 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-echo "Installing oh my zsh"
-`curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+#echo "Installing oh my zsh"
+#`curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
 
 echo "Initializing git submodules"
 git submodule init
@@ -11,7 +11,7 @@ git submodule foreach "git submodule init && git submodule update"
 echo "Symlinking"
 for file in **/*.symlink ; do
   target=`echo $file | awk '{ sub(/\.symlink$/, ""); print }'`
-  target=`echo $target | awk '{ sub(/[[:alnum:]_]+\//,""); print }'`
+  target=`echo $target | awk '{ sub(/[[a-zA-Z0-9_]+\//,""); print }'`
   target="$HOME/.$target"
   if [[ -e $target ]] ; then
     echo "File $target already exist. Overwrite it? [y/N]"
@@ -29,7 +29,7 @@ done
 echo "Processing remote files"
 for file in **/*.remote ; do
   target=`echo $file | awk '{ sub(/\.remote$/, ""); print }'`
-  target=`echo $target | awk '{ sub(/[[:alnum:]_]+\//,""); print }'`
+  target=`echo $target | awk '{ sub(/[[a-zA-Z0-9_]+\//,""); print }'`
   target="$HOME/.$target"
   if [[ -e $target ]] ; then
     echo "File $target already exist. Overwrite it? [y/N]"
