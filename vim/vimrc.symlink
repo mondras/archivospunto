@@ -213,7 +213,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$|\node_modules$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|vendor$|coverage$|log$|node_modules$|\.meteor',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
@@ -229,3 +229,15 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+
+" JSX
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jsxhint']
+

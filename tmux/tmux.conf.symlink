@@ -1,3 +1,6 @@
+# set Zsh
+set-option -g default-shell /bin/zsh
+
 # Ctrl-x as escape key
 unbind C-b
 set -g prefix C-s
@@ -11,17 +14,8 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-# Fix pasteboard on MacOS X
-# Install with $ brew install reattach-to-user-namespace
-# set-option -g default-command "reattach-to-user-namespace -l zsh"
-
-# Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-
-# Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+# Synch panes
+bind-key y set-window-option synchronize-panes
 
 set -g default-terminal "screen-256color"
 set -g status-bg colour234
