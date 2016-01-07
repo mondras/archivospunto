@@ -8,4 +8,4 @@ alias cube='cd ~/node_modules/cube/; node bin/collector.js 2>&1 >> collector.log
 alias powrules='sudo pfctl -e'
 alias reload='source ~/.zsrhc'
 alias dock='docker-machine start default; eval "$(docker-machine env default)"'
-
+alias prettyjson='python -m json.tool'
