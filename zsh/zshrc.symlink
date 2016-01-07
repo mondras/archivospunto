@@ -10,3 +10,6 @@ source $HOME/.archivospunto/zsh/theme.zsh-theme
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 [[ -a ~/.localrc ]] && source ~/.localrc
+
+export NVM_DIR="/Users/carlos/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
