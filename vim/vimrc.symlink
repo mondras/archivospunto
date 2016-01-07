@@ -131,13 +131,6 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
-" ActionScript
-au Bufread,BufNewFile *.as set filetype=actionscript " Load as files
-autocmd FileType actionscript setlocal sw=2 sts=2 et " Set indentation level
-autocmd BufNewFile,BufRead *.mxml,*.as :nmap <C-B> :!bash ~/.vim/bin/fcshcmp.sh %:p
-autocmd BufNewFile,BufRead *.mxml,*.as :nmap <C-A> :!bash ~/.vim/bin/fcshcmp.sh %:p run
-
-let g:Powerline_symbols = 'fancy'  " Display fancy characters in powerline
 set t_Co=256                       " Explicitly tell Vim that the terminal supports 256 colors
 
 " Display trailing white spaces
@@ -152,7 +145,6 @@ set background=light
 colorscheme solarized
 
 set smartindent
-nmap ff :FufFile **/<CR>
 " Copy / Pasta
 nmap cpasta :w !pbcopy
 set expandtab
@@ -162,7 +154,7 @@ set ts=2
 set hidden
 set hlsearch
 set incsearch
-set iskeyword-=_
+"set iskeyword-=_
 
 " Numbers gutter
 set number
@@ -209,16 +201,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$|\node_modules$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$\|\coverage$|\log$\|\node_modules$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
+let g:airline_powerline_fonts = 1
 
-set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -226,9 +214,9 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
