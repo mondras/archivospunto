@@ -7,3 +7,7 @@ gem: --no-ri --no-rdoc
 :backtrace: false
 :bulk_threshold: 1000
 :benchmark: false
+gem: -n/usr/local/bin
+gem: --user-install -n~/bin
+gem: --user-install -n~/usr/local/bin
+gem: --user-install -n/usr/local/bin
