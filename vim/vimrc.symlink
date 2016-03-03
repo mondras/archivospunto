@@ -166,7 +166,6 @@ set ts=2
 set hidden
 set hlsearch
 set incsearch
-set iskeyword-=_
 
 " Numbers gutter
 set number
