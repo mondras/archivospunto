@@ -23,6 +23,7 @@ Plugin 'tommcdo/vim-exchange'
 Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-bufferline'
+Plugin 'ledger/vim-ledger'
 
 " Vundle wrap-up
 call vundle#end()            " required

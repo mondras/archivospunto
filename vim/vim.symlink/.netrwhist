@@ -1,3 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/carlos/dev/transponder/tmp'
+let g:netrw_dirhist_2='/Users/carlos/dev/ledger-get-prices'
+let g:netrw_dirhist_3='/Users/carlos/dev/ledger-get-prices/lib'
+let g:netrw_dirhist_4='/Users/carlos/Dropbox/accounting'
+let g:netrw_dirhist_5='/Users/carlos/dev/ledger-get-prices/lib/ledger_get_prices'
+let g:netrw_dirhist_6='/Users/carlos/dev/house'
