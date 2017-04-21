@@ -6,3 +6,4 @@
 --ignore-dir=coverage
 --ignore-dir=tmp
 --ignore-dir=app/.meteor
+--ignore-dir=spec

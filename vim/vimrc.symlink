@@ -25,6 +25,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-bufferline'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
+Plugin 'fatih/vim-go'
 
 
 " Vundle wrap-up
@@ -155,7 +156,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/        " Display after exiting in
 
 " OLD STUFF
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 set smartindent
