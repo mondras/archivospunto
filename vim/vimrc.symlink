@@ -152,7 +152,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/        " Display after exiting in
 
 " OLD STUFF
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 set smartindent
