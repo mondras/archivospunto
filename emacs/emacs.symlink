@@ -1,0 +1,263 @@
+(require 'package)
+
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+(use-package evil :ensure t)
+
+(use-package solarized-theme
+  :ensure t
+  :config
+  (setq solarized-use-variable-pitch nil))
+(use-package helm
+  :ensure t
+  :diminish helm-mode
+  :commands helm-mode
+  :config
+  (helm-mode 1)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-autoresize-mode t)
+  (setq helm-buffer-max-length 40)
+  (define-key helm-map (kbd "S-SPC") 'helm-toggle-visible-mark)
+  (define-key helm-find-files-map (kbd "C-k") 'helm-find-files-up-one-level))
+
+;; Org Agenda
+;; ==========
+(setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+(define-key global-map "\C-cc" 'org-capture)
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+                               (file+headline "~/org/inbox.org" "Tasks")
+                               "* TODO %i%?")
+                              ("T" "Tickler" entry
+                               (file+headline "~/org/tickler.org" "Tickler")
+                               "* %i%? \n %U")))
+(setq org-agenda-custom-commands
+      '(("c" "Simple Agenda"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High priority unfinished tasks")))
+         (agenda "")
+         (alltodo "")))))
+
+;;(setq org-agenda-custom-commands
+;;      '(("d" "Daily agenda and all TODOs"
+;;         ((tags "PRIORITY=\"A\""
+;;                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+;;                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+;;          (agenda "" ((org-agenda-ndays 1)))
+;;          (alltodo ""
+;;                   ((org-agenda-skip-function '(or (air-org-skip-subtree-if-priority ?A)
+;;                                                   (org-agenda-skip-if nil '(scheduled deadline))))
+;;                    (org-agenda-overriding-header "ALL normal priority tasks:"))))
+;;         ((org-agenda-compact-blocks t)))))
+
+(defun my-org-agenda-skip-all-siblings-but-first ()
+  "Skip all but the first non-done entry."
+  (let (should-skip-entry)
+    (unless (org-current-is-todo)
+      (setq should-skip-entry t))
+    (save-excursion
+      (while (and (not should-skip-entry) (org-goto-sibling t))
+        (when (org-current-is-todo)
+          (setq should-skip-entry t))))
+    (when should-skip-entry
+      (or (outline-next-heading)
+          (goto-char (point-max))))))
+		  
+(defun org-current-is-todo ()
+  (string= "TODO" (org-get-todo-state)))
+
+(eval-after-load 'org-agenda
+ '(progn
+    (evil-set-initial-state 'org-agenda-mode 'normal)
+    (evil-define-key 'normal org-agenda-mode-map
+            (kbd "<DEL>") 'org-agenda-show-scroll-down
+      (kbd "<RET>") 'org-agenda-switch-to
+      (kbd "\t") 'org-agenda-goto
+      "\C-n" 'org-agenda-next-line
+      "\C-p" 'org-agenda-previous-line
+      "\C-r" 'org-agenda-redo
+      "a" 'org-agenda-archive-default-with-confirmation
+      ;b
+      "c" 'org-agenda-goto-calendar
+      "d" 'org-agenda-day-view
+      "e" 'org-agenda-set-effort
+      ;f
+      "g " 'org-agenda-show-and-scroll-up
+      "gG" 'org-agenda-toggle-time-grid
+      "gh" 'org-agenda-holidays
+      "gj" 'org-agenda-goto-date
+      "gJ" 'org-agenda-clock-goto
+      "gk" 'org-agenda-action
+      "gm" 'org-agenda-bulk-mark
+      "go" 'org-agenda-open-link
+      "gO" 'delete-other-windows
+      "gr" 'org-agenda-redo
+      "gv" 'org-agenda-view-mode-dispatch
+      "gw" 'org-agenda-week-view
+      "g/" 'org-agenda-filter-by-tag
+      "h"  'org-agenda-earlier
+      "i"  'org-agenda-diary-entry
+      "j"  'org-agenda-next-line
+      "k"  'org-agenda-previous-line
+      "l"  'org-agenda-later
+      "m" 'org-agenda-bulk-mark
+      "n" nil                           ; evil-search-next
+      "o" 'delete-other-windows
+      ;p
+      "q" 'org-agenda-quit
+      "r" 'org-agenda-redo
+      "s" 'org-save-all-org-buffers
+      ;"t" 'org-agenda-todo
+      "u" 'org-agenda-bulk-unmark
+      ;v
+      "x" 'org-agenda-exit
+      "y" 'org-agenda-year-view
+      "z" 'org-agenda-add-note
+      "{" 'org-agenda-manipulate-query-add-re
+      "}" 'org-agenda-manipulate-query-subtract-re
+      "$" 'org-agenda-archive
+      "%" 'org-agenda-bulk-mark-regexp
+      "+" 'org-agenda-priority-up
+      "," 'org-agenda-priority
+      "-" 'org-agenda-priority-down
+      "." 'org-agenda-goto-today
+      "0" 'evil-digit-argument-or-evil-beginning-of-line
+      ":" 'org-agenda-set-tags
+      ";" 'org-timer-set-timer
+      "<" 'org-agenda-filter-by-category
+      ">" 'org-agenda-date-prompt
+      "?" 'org-agenda-show-the-flagging-note
+      "A" 'org-agenda-append-agenda
+      "B" 'org-agenda-bulk-action
+      "C" 'org-agenda-convert-date
+      "D" 'org-agenda-toggle-diary
+      "E" 'org-agenda-entry-text-mode
+      "F" 'org-agenda-follow-mode
+      ;G
+      "H" 'org-agenda-holidays
+      "I" 'org-agenda-clock-in
+      "J" 'org-agenda-next-date-line
+      "K" 'org-agenda-previous-date-line
+      "L" 'org-agenda-recenter
+      "M" 'org-agenda-phases-of-moon
+      ;N
+      "O" 'org-agenda-clock-out
+      "P" 'org-agenda-show-priority
+      ;Q
+      "R" 'org-agenda-clockreport-mode
+      "S" 'org-agenda-sunrise-sunset
+      "T" 'org-agenda-show-tags
+      ;U
+      ;V
+      ;W
+      "X" 'org-agenda-clock-cancel
+      ;Y
+      ;Z
+      "[" 'org-agenda-manipulate-query-add
+      "g\\" 'org-agenda-filter-by-tag-refine
+      "]" 'org-agenda-manipulate-query-subtract)))
+
+;; Essential settings.
+(setq inhibit-splash-screen t
+      inhibit-startup-message t
+      inhibit-startup-echo-area-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(when (boundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(show-paren-mode 1)
+(setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+(setq-default left-fringe-width nil)
+(setq-default indicate-empty-lines t)
+(setq-default indent-tabs-mode nil)
+
+(setq visible-bell t)
+(setq vc-follow-symlinks t)
+(setq large-file-warning-threshold nil)
+(setq split-width-threshold nil)
+(setq custom-safe-themes t)
+(column-number-mode t)
+(setq tab-width 4)
+(setq tramp-default-method "ssh")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+ '(package-selected-packages (quote (exec-path-from-shell solarized-theme ##))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+
+;; agenda stuff
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(setq org-agenda-files '("~/org/"))
+;;(setq org-agenda-files '("~/org/inbox.org"
+;;                         "~/org/gtd.org"
+;;                         "~/org/refile.org"
+;;                         "~/org/tickler.org"))
+
+(setq org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
+                           ("~/org/someday.org" :level . 1)
+                           ("~/org/tickler.org" :maxlevel . 2)))
+
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+
+(load-theme 'solarized-dark t)
+(set-face-attribute 'default nil :height 140)
+(find-file "~/org/a.org")
+(setq inhibit-splash-screen t)
+(require 'org)
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((ruby . t)))
+(defun my-org-confirm-babel-evaluate (lang body)
+  (not (member lang '("ruby"))))
+
+(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+;; Syntax highlight
+(setq org-src-fontify-natively t)
+
+;;
+
+;; Set export folders to avoid
+;;(setq org-publish-project-alist
+;;  '(("html"
+;;     :base-directory "~/org/"
+;;     :base-extension "org"
+;;     :publishing-directory "~/org/exports"
+;;     :publishing-function org-publish-org-to-html)
+;;    ("pdf"
+;;     :base-directory "~/cloud/org/"
+;;     :base-extension "org"
+;;     :publishing-directory "~/org/exports"
+;;     :publishing-function org-publish-org-to-pdf)
+;;    ("all" :components ("html" "pdf"))))
