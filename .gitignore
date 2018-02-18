@@ -1,6 +1,7 @@
 # Ignore
 /vim/vim.symlink/bundle/
 /ruby/bundle.symlink/cache/
+/vim/vim.symlink/.netrwhist
 
 #
 # Allow
