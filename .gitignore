@@ -1,5 +1,7 @@
 # Ignore
 /vim/vim.symlink/bundle/
+/ruby/bundle.symlink/cache/
 
+#
 # Allow
 /vim/vim.symlink/bundle/Vundle.vim
