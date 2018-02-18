@@ -1,5 +1,9 @@
-export PATH=./bin:./vendor/local/bin:/usr/local/bin/:~/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:~/.npm/:/Applications/SeKey.app/Contents/MacOS:/~/.fastlane/bin:/usr/local/go/bin
+export PATH=./bin:./vendor/local/bin:/usr/local/bin/:~/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:~/.npm/:/Applications/SeKey.app/Contents/MacOS:/~/.fastlane/bin:/usr/local/go/bin:~/.local/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=/usr/bin/vim
 export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/Library/TeX/texbin
