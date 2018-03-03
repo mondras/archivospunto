@@ -16,6 +16,8 @@
 
 (use-package evil :ensure t)
 
+;;(use-package projectile :ensure t)
+
 (use-package solarized-theme
   :ensure t
   :config
@@ -32,6 +34,9 @@
   (define-key helm-map (kbd "S-SPC") 'helm-toggle-visible-mark)
   (define-key helm-find-files-map (kbd "C-k") 'helm-find-files-up-one-level))
 
+;;(use-package helm-projectile :ensure t)
+;;(use-package flx-ido :ensure t)
+;;(projectile-mode)
 ;; Org Agenda
 ;; ==========
 (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
@@ -39,6 +44,9 @@
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                (file+headline "~/org/inbox.org" "Tasks")
                                "* TODO %i%?")
+                              ("m" "Meeting" entry
+                               (file+headline "~/org/aki.org" "Meeting Notes")
+                               "** %T %i%?")
                               ("T" "Tickler" entry
                                (file+headline "~/org/tickler.org" "Tickler")
                                "* %i%? \n %U")))
@@ -48,19 +56,8 @@
                 ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
                  (org-agenda-overriding-header "High priority unfinished tasks")))
          (agenda "")
-         (alltodo "")))))
-
-;;(setq org-agenda-custom-commands
-;;      '(("d" "Daily agenda and all TODOs"
-;;         ((tags "PRIORITY=\"A\""
-;;                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-;;                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
-;;          (agenda "" ((org-agenda-ndays 1)))
-;;          (alltodo ""
-;;                   ((org-agenda-skip-function '(or (air-org-skip-subtree-if-priority ?A)
-;;                                                   (org-agenda-skip-if nil '(scheduled deadline))))
-;;                    (org-agenda-overriding-header "ALL normal priority tasks:"))))
-;;         ((org-agenda-compact-blocks t)))))
+         (alltodo "")
+         (todo "DONE")))))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
   "Skip all but the first non-done entry."
@@ -119,7 +116,7 @@
       "q" 'org-agenda-quit
       "r" 'org-agenda-redo
       "s" 'org-save-all-org-buffers
-      ;"t" 'org-agenda-todo
+      "t" 'org-agenda-todo
       "u" 'org-agenda-bulk-unmark
       ;v
       "x" 'org-agenda-exit
@@ -200,7 +197,9 @@
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
- '(package-selected-packages (quote (exec-path-from-shell solarized-theme ##))))
+ '(package-selected-packages
+   (quote
+    (ox-odt flx-ido exec-path-from-shell solarized-theme ##))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,11 +215,13 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
-(setq org-agenda-files '("~/org/"))
-;;(setq org-agenda-files '("~/org/inbox.org"
-;;                         "~/org/gtd.org"
-;;                         "~/org/refile.org"
-;;                         "~/org/tickler.org"))
+;;(setq org-agenda-files '("~/org/"))
+(setq org-agenda-files '("~/org/inbox.org"
+                         "~/org/gtd.org"
+                         "~/org/aki.org"
+                         "~/org/a.org"
+                         "~/org/refile.org"
+                         "~/org/tickler.org"))
 
 (setq org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
                            ("~/org/someday.org" :level . 1)
