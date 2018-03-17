@@ -47,16 +47,30 @@
                               ("m" "Meeting" entry
                                (file+headline "~/org/aki.org" "Meeting Notes")
                                "** %T %i%?")
+                              ("e" "Essay" entry
+                               (file+headline "~/org/a.org" "Essays")
+                               "** %T %i%?")
                               ("T" "Tickler" entry
                                (file+headline "~/org/tickler.org" "Tickler")
                                "* %i%? \n %U")))
+
+(setq all-files-but-inbox '("~/org/gtd.org"
+                            "~/org/aki.org"
+                            "~/org/a.org"
+                            "~/org/refile.org"
+                            "~/org/tickler.org"))
+
 (setq org-agenda-custom-commands
       '(("c" "Simple Agenda"
          ((tags "PRIORITY=\"A\""
                 ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
                  (org-agenda-overriding-header "High priority unfinished tasks")))
+         (alltodo ""
+                  ((org-agenda-files '("~/org/inbox.org"))
+                  (org-agenda-overriding-header "Inbox")))
          (agenda "")
-         (alltodo "")
+         (alltodo ""
+                  ((org-agenda-files all-files-but-inbox)))
          (todo "DONE")))))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
