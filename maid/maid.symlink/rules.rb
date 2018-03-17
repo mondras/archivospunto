@@ -28,10 +28,10 @@ Maid.rules do
   rule 'Finances' do
     dir('~/Downloads/*.QFX').each do |path|
       if path.include?('9707')
-        rename(path, "/Users/carlos/Library/Mobile Documents/com~apple~CloudDocs/accounting/inbox/9707.qfx")
+        rename(path, "~/Library/Mobile Documents/com~apple~CloudDocs/accounting/inbox/9707.qfx")
       end
       if path.include?('8910')
-        rename(path, "/Users/carlos/Library/Mobile Documents/com~apple~CloudDocs/accounting/inbox/8910.qfx")
+        rename(path, "~/Library/Mobile Documents/com~apple~CloudDocs/accounting/inbox/8910.qfx")
       end
     end
   end
