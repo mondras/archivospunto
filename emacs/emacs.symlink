@@ -42,20 +42,16 @@
 (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 (define-key global-map "\C-cc" 'org-capture)
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                               (file+headline "~/org/inbox.org" "Tasks")
-                               "* TODO %i%?")
-                              ("1" "1:1" entry
-                               (file+headline "~/org/aki.org" "Meeting Notes")
-                               "** %T 1:1 %i%? \n - Happiness: \n - Worry: \n - Workload: \n - Help: \n - Feedback for me: \n -  Reflektive:")
-                              ("m" "Meeting" entry
-                               (file+headline "~/org/aki.org" "Meeting Notes")
-                               "** %T %i%?")
-                              ("e" "Essay" entry
-                               (file+headline "~/org/a.org" "Essays")
-                               "** %T %i%?")
-                              ("T" "Tickler" entry
-                               (file+headline "~/org/tickler.org" "Tickler")
-                               "* %i%? \n %U")))
+                              (file+headline "~/org/inbox.org" "Tasks") "* TODO %i%?")
+                              ("W" "1:1 Wolf" entry (file+headline "~/org/aki.org" "Wolf") (file "~/org/1-1_template"))
+                              ("J" "1:1 Javi" entry (file+headline "~/org/aki.org" "Javi") (file "~/org/1-1_template"))
+                              ("M" "1:1 Marijose" entry (file+headline "~/org/aki.org" "Marijose") (file "~/org/1-1_template"))
+                              ("G" "1:1 Mago / Gerardo" entry (file+headline "~/org/aki.org" "Mago") (file "~/org/1-1_template"))
+                              ("D" "1:1 David" entry (file+headline "~/org/aki.org" "David") (file "~/org/1-1_template"))
+                              ("O" "1:1 ORR" entry (file+headline "~/org/aki.org" "Orr") "* %T")
+                              ("m" "Meeting" entry (file+headline "~/org/aki.org" "Meeting Notes") "** %T %i%?")
+                              ("e" "Essay" entry (file+headline "~/org/a.org" "Essays") "** %T %i%?")
+                              ("T" "Tickler" entry (file+headline "~/org/tickler.org" "Tickler") "* %i%? \n %U")))
 
 (setq all-files-but-inbox '("~/org/gtd.org"
                             "~/org/aki.org"
@@ -71,13 +67,13 @@
            (tags "PRIORITY=\"A\""
              ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
                  (org-agenda-overriding-header "High priority unfinished tasks")))
-         (alltodo ""
-                  ((org-agenda-files '("~/org/inbox.org" "~/org/refile.org"))
-                  (org-agenda-overriding-header "Inbox")))
-         (agenda "")
-         (alltodo ""
-                  ((org-agenda-files all-files-but-inbox)))
-         (todo "DONE")))))
+            (alltodo ""
+              ((org-agenda-files '("~/org/inbox.org" "~/org/refile.org"))
+              (org-agenda-overriding-header "Inbox")))
+           (agenda "")
+           (alltodo ""
+             ((org-agenda-files all-files-but-inbox)))
+         ))))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
   "Skip all but the first non-done entry."
