@@ -42,7 +42,7 @@
 (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 (define-key global-map "\C-cc" 'org-capture)
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                              (file+headline "~/org/inbox.org" "Tasks") "* TODO %i%?")
+                              (file+headline "~/org/inbox.org" "Tasks") "* TODO %i%? \n  SCHEDULED: %t")
                               ("W" "1:1 Wolf" entry (file+headline "~/org/aki.org" "Wolf") (file "~/org/1-1_template"))
                               ("J" "1:1 Javi" entry (file+headline "~/org/aki.org" "Javi") (file "~/org/1-1_template"))
                               ("M" "1:1 Marijose" entry (file+headline "~/org/aki.org" "Marijose") (file "~/org/1-1_template"))
@@ -58,6 +58,7 @@
                             "~/org/a.org"
                             "~/org/tickler.org"))
 
+;;(setq org-agenda-start-day "-5d")
 (setq org-agenda-custom-commands
       '(("c" "Simple Agenda"
          (
