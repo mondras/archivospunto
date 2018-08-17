@@ -75,6 +75,8 @@ set softtabstop=2
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
+"set list
+"set listchars=eol:i ,tab:␉·,trail:␠,nbsp:⎵
 
 set laststatus=2                 " Show the status line all the time
 " Useful status information at bottom of screen
@@ -222,7 +224,7 @@ let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|vendor$|coverage$|log$|node_modules$|\.meteor',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|vendor$|coverage$|log$|target$|node_modules$|\.meteor',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
