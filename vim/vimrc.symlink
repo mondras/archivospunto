@@ -229,3 +229,16 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+
+let g:syntastic_html_tidy_ignore_errors = [
+	\  'trimming empty <button>',
+	\  'trimming empty <span>',
+	\  'trimming empty <i>',
+	\  'trimming empty <h2>',
+	\  '<link> proprietary attribute "integrity"',
+	\  '<script> proprietary attribute "integrity"',
+	\  '<input> proprietary attribute "validate"',
+	\  '<input> proprietary attribute "required"',
+	\  '<textarea> proprietary attribute "required"',
+	\  '<iframe> proprietary attribute "allowfullscreen"',
+	\ ]
