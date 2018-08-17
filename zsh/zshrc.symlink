@@ -10,3 +10,4 @@ source $HOME/.archivospunto/zsh/theme.zsh-theme
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 [[ -a ~/.localrc ]] && source ~/.localrc
+eval "$(direnv hook zsh)"
