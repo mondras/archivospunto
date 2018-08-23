@@ -1,18 +1,46 @@
 MIMES = %w(
-  application/pdf
-  application/vnd.openxmlformats-officedocument.presentationml.presentation
-  application/zip
+  application/apple-diskimage
+  application/compress
+  application/epub+zip
+  application/excel
+  application/font-woff
+  application/gpx+xml
+  application/gzip
   application/iso-image
-  application/x-gzip
-  application/x-gtar
-  application/x-tgz
+  application/json
+  application/mobipocket-ebook
+  application/mp4
+  application/msword
+  application/octet-stream
+  application/pdf
+  application/pdf
+  application/pkicert
+  application/postscript
+  application/python
+  application/rar-compressed
+  application/vnd.oasis.opendocument.text
+  application/vnd.openxmlformats-officedocument.presentationml.presentation
+  application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document
   application/x-apple-diskimage
   application/x-bzip2
+  application/x-gtar
+  application/x-gzip
+  application/x-tgz
+  application/zip
+  audio/midi
+  audio/mpeg
+  image/png
   text/calendar
   text/comma-separated-values
-  text/plain
+  text/comma-separated-values
   text/html
+  text/plain
+  text/tab-separated-values
+  text/vcalendar
+  video/quicktime
 )
+
 Maid.rules do
   rule 'Delete day old documents' do
     dir('~/Downloads/*').each do |path|
