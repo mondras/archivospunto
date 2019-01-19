@@ -10,18 +10,23 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'mileszs/ack.vim'
-Plugin 'jamessan/vim-gnupg'
-Plugin 'slim-template/vim-slim'
-Plugin 'groenewege/vim-less'
+" Plugin 'jamessan/vim-gnupg'
+" Plugin 'slim-template/vim-slim'
+" Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 Plugin 'kana/vim-smartinput'
 Plugin 'tommcdo/vim-exchange'
+" Plugin 'leafgarland/typescript-vim'
+
+" LSP
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
 
 " Testing this ones
-Plugin 'tpope/vim-rails'
-Plugin 'scrooloose/syntastic'
+" Plugin 'tpope/vim-rails'
+" Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-bufferline'
 
 " Vundle wrap-up
@@ -30,7 +35,7 @@ filetype plugin indent on    " required
 
 " My stuff
 set encoding=utf-8                " Encoding UTF8
-syntax enable                     " Turn on syntax highlighting.
+" syntax enable                     " Turn on syntax highlighting.
 filetype on                       " Enable file type detection.
 filetype indent on                " Enable specific indent.
 filetype plugin indent on         " Turn on file type detection.
@@ -213,7 +218,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\vendor$|\coverage$|\log$|\node_modules$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|vendor$\|coverage$\|log$\|node_modules$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
@@ -242,3 +247,13 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\  '<textarea> proprietary attribute "required"',
 	\  '<iframe> proprietary attribute "allowfullscreen"',
 	\ ]
+
+"if executable('solargraph')
+"  " gem install solargraph
+"  au User lsp_setup call lsp#register_server({
+"      \ 'name': 'solargraph',
+"      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+"      \ 'initialization_options': {"diagnostics": "true"},
+"      \ 'whitelist': ['ruby'],
+"      \ })
+"endif
