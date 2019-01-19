@@ -7,3 +7,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/Library/TeX/texbin
+export PATH=$PATH:~/dev/go/bin
+export PATH="$HOME/.fastlane/bin:$PATH"
+export GOPATH=~/dev/go
