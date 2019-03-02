@@ -17,3 +17,7 @@ source $HOME/.archivospunto/zsh/theme.zsh-theme
 
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
+
+#vi-mode
+bindkey -v
+export KEYTIMEOUT=1
