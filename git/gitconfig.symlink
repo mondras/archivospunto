@@ -32,5 +32,6 @@
 [merge]
   tool = vimdiff
   summary = true
+	ff = false
 [pivotal]
 	api-token = db236751cd9b726f6421b0128e04c8b2

@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/ubuntu/dev/s3concat/lib'
-let g:netrw_dirhist_2='/home/ubuntu/dev/motion'
-let g:netrw_dirhist_3='/home/ubuntu/dev/house/app/client/stores'
-let g:netrw_dirhist_4='/home/ubuntu/dev/transponder/tmp'
-let g:netrw_dirhist_5='/home/ubuntu/.ethereum'
-let g:netrw_dirhist_6='/home/ubuntu/dev/tmp'
-let g:netrw_dirhist_7='/home/ubuntu/dev/devops/finance_reprocessor'
