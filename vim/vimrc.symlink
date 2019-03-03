@@ -224,8 +224,8 @@ let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|vendor$|coverage$|log$|target$|node_modules$|\.meteor',
-  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|vendor$\|coverage$\|log$\|target$\|node_modules$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$\|.class$'
   \ }
 
 if !exists('g:airline_symbols')
@@ -251,6 +251,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'passive_filetypes': ['java'] }
 
 " vim-rspec mappings
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
