@@ -21,3 +21,14 @@ eval "$(rbenv init -)"
 #vi-mode
 bindkey -v
 export KEYTIMEOUT=1
+
+#aki-cli
+eval "$(register-python-argcomplete aki)"
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/mondras/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+export GPG_TTY=$(tty)
+
+# Longer history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
